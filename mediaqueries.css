@@ -47,6 +47,41 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .animated-name {
+    font-size: 1.5rem; /* Adjust size for mobile */
+    animation: subtleFade 2s ease-in-out; /* Ensure animation applies */
+  }
+  
+  /* New Modifications Start */
+  body, p, h1, h2, h3, h4, h5, h6 {
+    text-align: left; /* Prevent unnecessary spacing due to text justification */
+    line-height: 1.5; /* Ensure consistent spacing between lines */
+  }
+
+  .section__text__p2, .title {
+    font-size: 1rem; /* Reduce font size for mobile for better alignment */
+  }
+
+  .text-container p {
+    margin: 0; /* Remove extra margin around paragraphs */
+    padding: 0; /* Remove padding around text */
+  }
+
+  .section-container, .about-details-container {
+    padding: 0.5rem; /* Reduce padding around sections */
+  }
+
+  .about-containers {
+    gap: 1rem; /* Add gap between containers for better readability */
+  }
+  
+  .experience-sub-title {
+    font-size: 1.2rem; /* Adjust sub-title size for mobile */
+  }
+  /* New Modifications End */
+}
+
 @media screen and (max-width: 600px) {
   #contact,
   footer {
@@ -101,11 +136,35 @@
     text-align: justify;
   }
 }
-@media (max-width: 768px) {
-  .animated-name {
-      font-size: 1.5rem; /* Adjust size for mobile */
-      animation: subtleFade 2s ease-in-out; /* Ensure animation applies */
-  }
+
+/* Reduce bottom margin and padding for #experience */
+#experience {
+  margin-bottom: 0; /* Ensure no extra margin */
+  padding-bottom: 0; /* Remove padding */
 }
 
+/* Reduce top margin for #projects */
+#projects {
+  margin-top: 0; /* Remove unnecessary top margin */
+}
 
+/* Ensure no height is adding space unintentionally */
+#experience, #projects {
+  height: auto; /* Ensure no fixed height causing excess space */
+}
+
+/* Adjust spacing between sections for all screen sizes */
+section {
+  margin-bottom: 2rem; /* Add consistent spacing if needed */
+}
+
+/* For mobile-specific view adjustments */
+@media screen and (max-width: 768px) {
+  #experience {
+    margin-bottom: 1rem; /* Slight margin for smaller screens */
+  }
+
+  #projects {
+    margin-top: 1rem; /* Reduce space further */
+  }
+}

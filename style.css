@@ -479,4 +479,24 @@ footer p {
       font-size: 2rem; /* Ensure mobile font size */
     }
   }
-    
+
+/* Experience Section Icon Grid */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Responsive grid layout */
+  gap: 1rem; /* Adjust spacing between icons */
+  justify-items: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.skill-icon {
+  width: 50px; /* Adjust the size of icons */
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease; /* Hover animation */
+}
+
+.skill-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
