@@ -286,6 +286,10 @@ section {
   display: flex;
 }
 
+.about-details-container p {
+  text-align: justify; /* This aligns the text */
+}
+
 .about-pic {
   border-radius: 2rem;
 }
