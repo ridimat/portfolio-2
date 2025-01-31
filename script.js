@@ -1,52 +1,49 @@
-const express = require("express");
-const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser");
-const path = require("path");
+// Dark Mode Toggle Script
+document.addEventListener("DOMContentLoaded", function () {
+  const themeToggleIcon = document.getElementById("theme-toggle-icon"); // Desktop icon
+  const mobileThemeToggleIcon = document.getElementById("mobile-theme-toggle-icon"); // Mobile icon
 
-const app = express();
-const port = 3000;
+  if (!themeToggleIcon || !mobileThemeToggleIcon) {
+    console.error("Dark mode toggle icons not found.");
+    return;
+  }
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static("assets")); // Serve static files
+  // Check local storage for theme preference
+  if (localStorage.getItem("dark-mode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    // Change the icon to a moon if dark mode is enabled
+    themeToggleIcon.src = "./assets/darklight.png";
+    mobileThemeToggleIcon.src = "./assets/darklight.png";
+  }
 
-// Serve the main HTML file
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  // Function to toggle dark mode
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+
+    // Update the icon based on the current theme
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    const newIconSrc = isDarkMode ? "./assets/darklight.png" : "./assets/darklight.png";
+    themeToggleIcon.src = newIconSrc;
+    mobileThemeToggleIcon.src = newIconSrc;
+
+    // Save the theme preference to local storage
+    localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
+  }
+
+  // Add event listeners for desktop and mobile icons
+  themeToggleIcon.addEventListener("click", toggleDarkMode);
+  mobileThemeToggleIcon.addEventListener("click", toggleDarkMode);
 });
 
-// Route to handle form submission
-app.post("/send-email", (req, res) => {
-  const { name, email, contact, message } = req.body;
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger-icon");
+  const menuLinks = document.querySelector(".menu-links");
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL_USER, // Replace with your email
-      pass: process.env.EMAIL_PASS, // Replace with your email/app password
-    },
-  });
-
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER, // Replace with your email
-    subject: `Query from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nContact: ${contact}\n\nMessage: ${message}`,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-      res.status(500).send("Error sending email.");
-    } else {
-      console.log("Email sent: " + info.response);
-      res.status(200).send("Email sent successfully.");
-    }
-  });
+  if (hamburger && menuLinks) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      menuLinks.classList.toggle("open");
+    });
+  }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});

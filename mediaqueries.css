@@ -168,3 +168,17 @@ section {
     margin-top: 1rem; /* Reduce space further */
   }
 }
+
+/* Hide Desktop Icon on Mobile */
+@media (max-width: 768px) {
+  #theme-toggle-container {
+    display: none; /* Hide desktop toggle on smaller screens */
+  }
+}
+
+/* Hide Mobile Icon on Desktop */
+@media (min-width: 769px) {
+  #mobile-theme-toggle-container {
+    display: none; /* Hide mobile toggle on larger screens */
+  }
+}

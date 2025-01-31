@@ -504,3 +504,75 @@ footer p {
 .skill-icon:hover {
   transform: scale(1.1); /* Slightly enlarge on hover */
 }
+
+/* DARK MODE STYLING */
+
+/* General Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212; /* Dark background for the body */
+  color: #ffffff; /* Light text color */
+}
+
+/* Navbar and Footer in Dark Mode */
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #1e1e1e; /* Darker navbar and footer */
+}
+
+/* Links in Dark Mode */
+body.dark-mode a {
+  color: #ffffff; /* White links */
+}
+
+body.dark-mode a:hover {
+  color: #cccccc; /* Slightly dimmed hover effect */
+}
+
+/* Text in Dark Mode */
+body.dark-mode p {
+  color: #ffffff;
+}
+
+/* Section Titles in Dark Mode */
+body.dark-mode .title,
+body.dark-mode .section__text__p1,
+body.dark-mode .section__text__p2 {
+  color: #ffffff; /* Light color for section titles */
+}
+
+/* ICON-BASED DARK MODE TOGGLE */
+
+/* Desktop Toggle Icon */
+#theme-toggle-container {
+  position: absolute; /* Positioned relative to the navbar */
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+}
+
+#theme-toggle-icon {
+  height: 24px;
+  width: 24px;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+#theme-toggle-icon:hover {
+  transform: scale(1.2); /* Slight enlargement on hover */
+}
+
+/* Mobile Toggle Icon */
+#mobile-theme-toggle-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#mobile-theme-toggle-icon {
+  height: 24px;
+  width: 24px;
+  margin: auto;
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+#mobile-theme-toggle-icon:hover {
+  transform: scale(1.2); /* Slight enlargement on hover */
+}
