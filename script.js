@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
 
-    // Update the icon based on the current theme
     const isDarkMode = document.body.classList.contains("dark-mode");
     const newIconSrc = isDarkMode ? "./assets/darklight.png" : "./assets/darklight.png";
     themeToggleIcon.src = newIconSrc;
